@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function alertMe() {
+            let confirmBox = document.getElementById("confirm");
+            // when we click on click me btn the alert will appear
+            confirmBox.setAttribute("style", "display: block");
+
+            // button within the alert modal
+            let okayButton = document.getElementsByClassName("yes")[0];
+            // we want to hide the alert modal when button is clicked
+            // add an event listener onclick
+            okayButton.onclick = function() {
+                confirmBox.setAttribute("style", "display: none");
+            }
+        }
+    </script>
+    <style>
+        #confirm {
+            display: none;
+            background-color: rgb(58, 58, 58);
+            border: 2px solid rgba(211, 3, 3, 0.767);
+            width: 15em;
+            position: fixed;
+            left: 50%;
+            padding: 6px 8px 8px;
+            margin-left: -100px;
+            text-align: center;
+        }
+
+        #confirm .message {
+            color: white;
+            margin-top: 1em;
+            margin-bottom: 1em;
+        }
+
+        #confirm button {
+            background-color: rgb(247, 40, 40);
+            border-radius: 5%;
+            border: 1px solid red;
+            cursor: pointer;
+            width: 25%;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="confirm">
+        <div class="message">This is a warning message</div>
+        <button class="yes">Ok</button>
+    </div>
+    <input type="button" value="Click Me" onclick="alertMe()">
+</body>
+</html>
